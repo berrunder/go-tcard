@@ -21,12 +21,13 @@ type Card struct {
 	PAN        string `json:"CardPAN"`
 }
 
-const defaultURL = "https://t-karta.ru/EK/Cabinet/Trip"
+// DefaultURL to fetch card data
+const DefaultURL = "https://t-karta.ru/EK/Cabinet/Trip"
 
 // Fetch card info from url. If formURL is empty, default value will be used
 func Fetch(num string, formURL string) (*Card, error) {
 	if formURL == "" {
-		formURL = defaultURL
+		formURL = DefaultURL
 	}
 
 	cardJSON, err := fetchJSON(num, formURL)
