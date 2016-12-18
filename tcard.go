@@ -42,6 +42,10 @@ func Fetch(num string, formURL string) (*Card, error) {
 		return nil, err
 	}
 
+	if card.PAN == "" {
+		return nil, errors.New("Card data is empty")
+	}
+
 	return &card, nil
 }
 
